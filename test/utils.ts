@@ -9,7 +9,7 @@ export function getTransformer () {
     .addTransformer(transformerFactory)
     .addMock({
       name: 'ts-transformer-ajv',
-      content: fs.readFileSync(path.resolve(__dirname, '../src/get-validator-from-type.ts'), 'utf8')
+      content: fs.readFileSync(path.resolve(__dirname, '../src/validator-functions/get-validator-from-type.ts'), 'utf8')
     })
     .setCompilerOptions({
       strict: true,

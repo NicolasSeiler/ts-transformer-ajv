@@ -6,7 +6,7 @@ import { ValidateCallOptions } from './ValidateCallOptions'
 
 export function generateSchemaForType (typeName: string, program: ts.Program, schemaOptions: ValidateCallOptions[ 'schema' ]) {
   const schemaArgs = schemaOptions ? fromLiteral(schemaOptions) : {}
-  const schema = tjs.generateSchema(program, typeName, { ...schemaArgs, ignoreErrors: true } as tjs.PartialArgs)
+  const schema = tjs.generateSchema(program as unknown as tjs.Program, typeName, { ...schemaArgs, ignoreErrors: true } as tjs.PartialArgs)
 
   if (!schema) {
     console.error(`WARNING: COULD NOT GENERATE SCHEMA FOR TYPE ${typeName}`)
