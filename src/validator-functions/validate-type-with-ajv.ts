@@ -1,4 +1,5 @@
 import Ajv, { Options } from 'ajv'
+import addFormats from "ajv-formats"
 import { Config } from "ts-json-schema-generator";
 import { ValidationResult } from '../lib/ValidationResult'
 
@@ -8,6 +9,7 @@ export function validateTypeWithAjv<_T> (data: any, schemaGenerationOptions?: Om
 export function validateTypeWithAjv<_T> (data: any, schemaGenerationOptions: Omit<Config, "tsconfig"> | Options, ajvOptions: Options): ValidationResult
 export function validateTypeWithAjv<_T> (data: any, schemaGenerationOptions?: Omit<Config, "tsconfig"> | Options, ajvOptions?: Options): ValidationResult {
     const ajv = new Ajv(ajvOptions)
+    addFormats(ajv)
     const isValid = ajv.validate(schemaGenerationOptions as any, data) as boolean
 
     return {
