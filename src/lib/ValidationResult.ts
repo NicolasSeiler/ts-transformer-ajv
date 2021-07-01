@@ -1,6 +1,6 @@
-import type Ajv from 'ajv'
+import { ValidateFunction } from 'ajv'
 
 export type ValidationResult = {
     isValid: boolean,
-    errors: Ajv.ValidateFunction['errors']
+    errors: ValidateFunction['errors']
 }

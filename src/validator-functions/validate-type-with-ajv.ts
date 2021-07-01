@@ -1,12 +1,12 @@
-import Ajv from 'ajv'
-import { PartialArgs } from 'typescript-json-schema'
+import Ajv, { Options } from 'ajv'
+import { Config } from "ts-json-schema-generator";
 import { ValidationResult } from '../lib/ValidationResult'
 
 
-export function validateTypeWithAjv<_T> (data: any, ajvOptions?: Ajv.Options): ValidationResult
-export function validateTypeWithAjv<_T> (data: any, schemaGenerationOptions?: PartialArgs): ValidationResult
-export function validateTypeWithAjv<_T> (data: any, schemaGenerationOptions: PartialArgs | Ajv.Options, ajvOptions: Ajv.Options): ValidationResult
-export function validateTypeWithAjv<_T> (data: any, schemaGenerationOptions?: PartialArgs | Ajv.Options, ajvOptions?: Ajv.Options): ValidationResult {
+export function validateTypeWithAjv<_T> (data: any, ajvOptions?: Options): ValidationResult
+export function validateTypeWithAjv<_T> (data: any, schemaGenerationOptions?: Omit<Config, "tsconfig">): ValidationResult
+export function validateTypeWithAjv<_T> (data: any, schemaGenerationOptions: Omit<Config, "tsconfig"> | Options, ajvOptions: Options): ValidationResult
+export function validateTypeWithAjv<_T> (data: any, schemaGenerationOptions?: Omit<Config, "tsconfig"> | Options, ajvOptions?: Options): ValidationResult {
     const ajv = new Ajv(ajvOptions)
     const isValid = ajv.validate(schemaGenerationOptions as any, data) as boolean
 
