@@ -1,6 +1,6 @@
 {
   "name": "ts-transformer-ajv",
-  "version": "2.0.0-rc.2",
+  "version": "2.0.0-rc.3",
   "description": "TypeScript transformer to validate types in runtime using JSON Schema and AJV",
   "author": "Rogério Munhoz <roz@rjmunhoz.me>",
   "license": "GPL-3.0",
@@ -25,7 +25,7 @@
   "scripts": {
     "test": "echo \"Tests are, currently, not working :/\" && exit 0 #mocha -b -r ts-node/register test/**/*.test.ts",
     "build": "tsc",
-    "clean": "rm -rf dist tsconfig.tsbuildinfo",
+    "clean": "",
     "build:clean": "npm run clean && npm run build",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "npm run lint -- --fix",
