@@ -5,7 +5,7 @@ import { getTypeNameFromCall } from './lib/get-type-name-from-call'
 function getCallExpressionReplacement (call: ts.CallExpression, typeName: string, program: ts.Program) {
   const replacer = replacers.find(replacer => replacer.acceptsCall(call))
 
-  if (!replacer) return null
+  if (!replacer || typeName === '') return null
 
   return replacer.getReplacement(call, typeName, program)
 }
