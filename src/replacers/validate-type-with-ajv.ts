@@ -57,5 +57,5 @@ export function getReplacement (call: ts.CallExpression, typeName: string, progr
 
 export default {
     getReplacement,
-    acceptsCall: (call: ts.CallExpression) => /^validateTypeWithAjv<[^<>]+>(.*)$/.test(call.expression.getText())
+    acceptsCall: (call: ts.CallExpression) => /validateTypeWithAjv<[^<>]+>(.*)/.test(call.expression.getText())
 }
