@@ -41,5 +41,5 @@ export function getReplacement (call: ts.CallExpression, typeName: string, progr
 
 export default {
     getReplacement,
-    acceptsCall: (call: ts.CallExpression) => /getValidatorFromType<[^<>]+>(.*)/.test(call.expression.getText())
+    acceptsCall: (call: ts.CallExpression) => call.expression.getText() === "getValidatorFromType"
 }
