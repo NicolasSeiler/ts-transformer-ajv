@@ -7,6 +7,11 @@ export function getTypeNameFromCall (call: ts.CallExpression, typeChecker: ts.Ty
     if (ts.isTypeReferenceNode(typeArgument)) {
         return typeArgument.typeName.getText()
     }
+    
+    if (typeArgument.getText() === 'never') {
+        return '';
+    }
+
     const type = typeChecker.getTypeFromTypeNode(typeArgument)
     const symbol = type.aliasSymbol || type.symbol
     if (!symbol) throw new Error(`Cannot get symbol for type ${typeArgument.getText()}`)
